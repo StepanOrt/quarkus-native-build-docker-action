@@ -21,6 +21,8 @@ if [ -n "$DOCKERFILE_PATH" ]; then
   fi
 fi
 
+rm .dockerignore
+
 docker build . -f $DOCKER_FILE_TO_USE -t native-build-image
 
 RUNNER_NAME=$(docker run native-build-image ls /usr/src/app/target | grep .-runner)
